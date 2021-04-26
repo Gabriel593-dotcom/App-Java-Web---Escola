@@ -24,9 +24,7 @@ public class AlunoConfig implements CommandLineRunner {
 
 		Aluno aluno1 = new Aluno(null, "Gabriel", 21);
 		Aluno aluno2 = new Aluno(null, "Ana", 19);
-		Aluno aluno3 = new Aluno(null, "Ana", 19);
 		alunoRepository.saveAll(Arrays.asList(aluno1, aluno2));
-		alunoService.insert(aluno3);
 	}
 
 }

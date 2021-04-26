@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.escola.demo.model.Aluno;
 import com.escola.demo.repository.AlunoRepository;
+import com.escola.demo.service.exceptions.ResourceAlreadyExistsException;
 import com.escola.demo.service.exceptions.ResourceNotFoundException;
 
 @Service
@@ -33,11 +34,11 @@ public class AlunoService {
 
 		if (filteredAluno.isEmpty()) {
 			alunoRepository.save(aluno);
+		} else {
+			System.out.println("Aluno já cadastrado. " + "(" + aluno.toString() + ")");
+			throw new ResourceAlreadyExistsException();
 		}
-		else {
-			System.out.println("Aluno já cadastrado. "+ "(" + aluno.toString() + ")");
-		}
-		
+
 	}
 
 	public void delete(Long id) {
